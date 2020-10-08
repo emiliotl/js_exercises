@@ -1,2 +1,2 @@
-# js_exercises_from_book
+# js_exercises
 A collection of each unit exercises from the Eloquent
