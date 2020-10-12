@@ -37,7 +37,7 @@ function reverseArrayInPlace(array) {
     return array;
 }
 
-sampleArray = [3, 10, -1, 59, 500];
+let sampleArray = [3, 10, -1, 59, 500];
 console.log(reverseArray(sampleArray));
 console.log(sampleArray);
 console.log(reverseArrayInPlace(sampleArray));

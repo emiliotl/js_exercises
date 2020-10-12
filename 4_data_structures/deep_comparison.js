@@ -17,46 +17,50 @@
  */
 
 function deepEqual(firstObject, secondObject) {
-    if (Object.keys(firstObject).length !== Object.keys(secondObject).length) return false;
-    for (let member of Object.keys(firstObject)) {
-        if (firstObject[member] === null) {
-            if (null !== secondObject[member]) {
-                return false;
-            }
-        } else if (typeof firstObject[member] !== "object") {
-            if (firstObject[member] !== secondObject[member]) {
-                return false
-            }
-        } else {
-            if (!deepEqual(firstObject[member], secondObject[member])) return false;
+    if (firstObject && secondObject) {
+        const firstObjectProperties = Object.keys(firstObject);
+        const secondObjectProperties = Object.keys(secondObject);
+
+        if (firstObjectProperties.length !== secondObjectProperties.length) return false;
+        for (let member of firstObjectProperties) {
+            const firstObjectMember = firstObject[member];
+            const secondObjectMember = secondObject[member];
+
+            if (typeof firstObjectMember === 'object' && typeof secondObjectMember === 'object') {
+                if (!deepEqual(firstObjectMember, secondObjectMember)) return false;
+            } else if (firstObjectMember !== secondObjectMember) return Number.isNaN(firstObjectMember);
         }
-    }
-    return true;
+        return true;
+    } else if (firstObject !== secondObject) return Number.isNaN(firstObject);
+    else return true;
 }
 
 
 let sampleObject = {
-    a: 1,
+    a: null,
     b: 'sample',
-    c: { d: true, e: 8},
-    f: [1, 2, 3],
-    g: 'z'
+    c: { d: true, e: 8, f: undefined},
+    g: [1, 2, 3],
+    h: NaN,
+    i: 0,
 }
 
 let sampleEqualObject = {
-    a: 1,
+    a: null,
     b: 'sample',
-    c: { d: true, e: 8},
-    f: [1, 2, 3],
-    g: 'z'
+    c: { d: true, e: 8, f: undefined},
+    g: [1, 2, 3],
+    h: NaN,
+    i: 0
 }
 
 let sampleDifferentObject = {
-    a: 1,
+    a: null,
     b: 'sample',
-    c: { d: true, e: 10},
-    f: [1, 2, 3],
-    g: 'z'
+    c: { d: true, e: 10, f: undefined},
+    g: [1, 2, 3],
+    h: 'z',
+    i: 0
 }
 
 

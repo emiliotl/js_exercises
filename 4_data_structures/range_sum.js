@@ -22,22 +22,21 @@
 function range(lower_bound, upper_bound, step= 1) {
     let numbers = [];
 
-    if (lower_bound > upper_bound && step === 1) {
-        console.log("step parameter has a default value of 1, " +
-            "if you want a countdown range, a negative step must be given");
-        return;
+    try {
+        if (lower_bound < upper_bound && step > 0) {
+            for (let i = lower_bound; i <= upper_bound; i += step) {
+                numbers.push(i);
+            }
+        } else if (lower_bound > upper_bound && step < 0) {
+            for (let i = lower_bound; i >= upper_bound; i += step) {
+                numbers.push(i);
+            }
+        } else throw Error("Given parameters won't produce a delimited range.");
+        return numbers;
+    } catch (e) {
+        return e;
     }
-    if (lower_bound < upper_bound && step > 0) {
-        for (let i = lower_bound; i <= upper_bound; i += step) {
-            numbers.push(i);
-        }
-    } else if (lower_bound > upper_bound && step < 0) {
-        for (let i = lower_bound; i >= upper_bound; i += step) {
-            numbers.push(i);
-        }
-    } else console.log("Given parameters won't produce a delimited range.");
 
-    return numbers;
 }
 
 
@@ -47,5 +46,5 @@ function sum(array) {
 
 
 
-console.log(range(10, 0, -10));
+console.log(range(10, 0, -1));
 console.log(sum(range(1, 10)));
