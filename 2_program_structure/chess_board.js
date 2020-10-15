@@ -19,17 +19,21 @@
  * of the given width and height.
  */
 
-let board = '';
-let size = 8;
 
-for (let i = 0; i < size; i++) {
-    for (let j = 0; j <= size; j++) {
-        if (j === size) board += `\n`;
-        else if (i % 2 === 0 && j % 2 === 0) board += ' ';
-        else if (i % 2 === 0 && j % 2 !== 0) board += '#';
-        else if (i % 2 !== 0 && j % 2 === 0) board += '#';
-        else if (i % 2 !== 0 && j % 2 !== 0) board += ' ';
+function chessBoard(size) {
+    let board = '';
+
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j <= size; j++) {
+            if (j === size) board += `\n`;
+            else if (i % 2 === 0 && j % 2 === 0) board += ' ';
+            else if (i % 2 === 0 && j % 2 !== 0) board += '#';
+            else if (i % 2 !== 0 && j % 2 === 0) board += '#';
+            else if (i % 2 !== 0 && j % 2 !== 0) board += ' ';
+        }
     }
+
+    return board;
 }
 
-console.log(board)
+console.log(chessBoard(8));
