@@ -1,0 +1,7 @@
+{
+  "name": "single_scripts",
+  "version": "1.0.0",
+  "dependencies": {
+    "common-js": "^0.3.8"
+  }
+}
