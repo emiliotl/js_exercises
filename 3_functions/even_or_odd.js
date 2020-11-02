@@ -16,13 +16,20 @@
  */
 
 function isEven(integer) {
-    if (integer === 0) return true;
-    else if (integer >= 0) {
-        if (integer === 1) return false;
-        else return isEven(integer - 2);
+    if (integer === 0) {
+        return true;
+    } else if (integer >= 0) {
+        if (integer === 1) {
+            return false;
+        } else {
+            return isEven(integer - 2);
+        }
     } else {
-        if (integer === -1) return false;
-        else return isEven(integer + 2);
+        if (integer === -1) {
+            return false;
+        } else {
+            return isEven(integer + 2);
+        }
     }
 }
 

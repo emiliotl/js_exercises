@@ -18,4 +18,4 @@ function loop(value, testFunction, updateFunction, bodyFunction) {
 }
 
 
-loop(0, (a) => a < 5, (a) => a = a + 1, console.log);
+loop(0, (index) => index < 5, (index) => index = index + 1, console.log);

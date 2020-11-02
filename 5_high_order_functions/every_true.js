@@ -29,5 +29,5 @@ function everyWithSome(array, predictiveFunction) {
 }
 
 
-console.log(everyWithLoop([1, 2, 3, 4, 5], (a) => a < 2));
-console.log(everyWithSome([1, 2, 3, 4, 5], (a) => a > 4));
+console.log(everyWithLoop([1, 2, 3, 4, 5], (value) => value < 2));
+console.log(everyWithSome([1, 2, 3, 4, 5], (value) => value > 4));

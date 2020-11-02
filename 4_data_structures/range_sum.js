@@ -38,7 +38,7 @@ function range(lower_bound, upper_bound, step= 1) {
 
 
 function sum(array) {
-    return array.reduce((a, b) => a + b);
+    return array.reduce((accumulator, value) => accumulator + value);
 }
 
 

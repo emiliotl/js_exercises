@@ -5,11 +5,11 @@
  */
 
 function flatten(nestedArray) {
-    return nestedArray.reduce((a, b) => {
-        if (Array.isArray(b)) {
-            return a.concat(flatten(b));
+    return nestedArray.reduce((accumulator, value) => {
+        if (Array.isArray(value)) {
+            return accumulator.concat(flatten(value));
         } else {
-            return a.concat(b);
+            return accumulator.concat(value);
         }
     }, []);
 }

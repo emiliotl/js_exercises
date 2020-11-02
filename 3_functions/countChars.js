@@ -24,7 +24,9 @@ function countChar(text, character) {
     let count = 0
 
     for (let letter of text) {
-        if (letter === character) count += 1;
+        if (letter === character) {
+            count += 1;
+        }
     }
 
     return count;
