@@ -31,7 +31,9 @@ const box = {
     lock() { this.locked = true; },
     _content: ['Surprise!'],
     get content() {
-        if (this.locked) throw new Error("Locked!");
+        if (this.locked) {
+            throw new Error("Locked!");
+        }
         return this._content;
     }
 };
@@ -43,7 +45,9 @@ function withBoxUnlocked(action) {
         let result = action(box.content);
         box.lock();
         return result;
-    } else return action(box.content)
+    } else {
+        return action(box.content)
+    }
 }
 
 

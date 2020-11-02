@@ -31,7 +31,7 @@ console.log(`1 - Expected: false; Found: ${regular_expression.test('Kachow')}`);
 console.log(`1 - Expected: true; Found: ${regular_expression.test('A single cat')}\n`);
 
 console.log('2. pop and prop');
-regular_expression = /p(r?)op/;
+regular_expression = /pr?op/;
 console.log(`2 - Expected: true; Found: ${regular_expression.test('pop is cool')}`);
 console.log(`2 - Expected: false; Found: ${regular_expression.test('A single statement')}`);
 console.log(`2 - Expected: true; Found: ${regular_expression.test('That is a property')}\n`);

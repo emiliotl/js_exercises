@@ -14,14 +14,20 @@ function primitiveMultiply(arrayOfPossibilities) {
     let count = 0
 
     for (let value of arrayOfPossibilities) {
-        if (typeof value === 'number') count++;
+        if (typeof value === 'number') {
+            count++;
+        }
     }
 
-    if ((count / arrayOfPossibilities.length) < 0.2) throw Error('Array must have 20% of its members as numbers');
+    if ((count / arrayOfPossibilities.length) < 0.2) {
+        throw Error('Array must have 20% of its members as numbers');
+    }
     let randomMember = arrayOfPossibilities[getRandomInteger(arrayOfPossibilities.length)];
 
     try {
-        if (typeof randomMember !==  'number') throw new MultiplicationUnitFailure('Function did not received numbers to multiply');
+        if (typeof randomMember !==  'number') {
+            throw new MultiplicationUnitFailure('Function did not received numbers to multiply');
+        }
     } catch (e) {
         return e;
     }

@@ -13,9 +13,9 @@
  * when a module in a cycle does replace its default exports object?
  */
 
-const {cars} = require('./second_module_sample.js');
 
 exports.person = function() {
+    var {cars} = require('./second_module_sample.js');
     return {
         'name': 'Pepe',
         'Age': 42,
@@ -23,7 +23,8 @@ exports.person = function() {
     };
 }
 
-console.log(cars())
+console.log(cars());
+
 
 /*
  * No pude hacer mucho aqui, pero por ahora, lo que llegué a comprender de este ejercicio es que con esta referencia

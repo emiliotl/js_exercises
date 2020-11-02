@@ -39,18 +39,25 @@ class Group extends Array {
         return this.includes(element);
     }
     add(element) {
-        if (!this.has(element)) this.push(element);
+        if (!this.has(element)) {
+            return this.concat(element);
+        } else {
+            return this;
+        }
     }
     remove(element) {
-        if (this.has(element)) delete this.splice(this.indexOf(element), 1);
+        if (this.has(element)) {
+            return this.slice(0, this.indexOf(element)).concat(this.slice(this.indexOf(element) + 1));
+        } else {
+            return this;
+        }
     }
     static from(collection) {
         let group = new Group();
 
         for (let element of collection) {
-            group.add(element);
+            group = group.add(element);
         }
-
         return group;
     }
 }
@@ -62,7 +69,9 @@ class GroupIterator {
     }
 
     next() {
-        if (this.index === this.group.length) return { value: undefined, done: true };
+        if (this.index === this.group.length) {
+            return { value: undefined, done: true };
+        }
         let value = { value: this.group[this.index]}
         this.index++;
         return {value, done: false};
@@ -75,12 +84,13 @@ Group.prototype[Symbol.iterator] = function () {
 
 let firstGroup = new Group();
 for (let i = 0; i < 3; i++) {
-    firstGroup.add(i);
+    firstGroup = firstGroup.add(i);
 }
-firstGroup.remove(2);
+let filteredFistGroup = firstGroup.remove(1);
 let collection = [1, 2, 3, 2, 4, 5, 3, 5, 1];
 let secondGroup = Group.from(collection);
 
+console.log(filteredFistGroup);
 console.log(firstGroup);
 console.log(secondGroup);
 for (let element of secondGroup) {

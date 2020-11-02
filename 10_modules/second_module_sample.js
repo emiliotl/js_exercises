@@ -1,8 +1,6 @@
 
-const {person} = require('./first_module_sample');
 
 exports.cars = function() {
+    const {person} = require('./first_module_sample');
     return ['Ford', 'Nissan', person()];
 }
-
-console.log(person())
