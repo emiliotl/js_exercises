@@ -70,10 +70,13 @@ function prepend(element, list) {
 
 
 function nth(list, index) {
-    if (index < 0) return undefined;
+    if (index < 0) {
+        return undefined;
+    }
     while (list !== null && index >= 0) {
-        if (index === 0) return list.value;
-        else {
+        if (index === 0) {
+            return list.value;
+        } else {
             return nth(list.rest, index - 1);
         }
     }

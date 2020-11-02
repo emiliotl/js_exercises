@@ -5,8 +5,14 @@
  */
 
 function flatten(nestedArray) {
-    return nestedArray.reduce((a, b) => a.concat(b));
+    return nestedArray.reduce((a, b) => {
+        if (Array.isArray(b)) {
+            return a.concat(flatten(b));
+        } else {
+            return a.concat(b);
+        }
+    }, []);
 }
 
 
-console.log(flatten([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
+console.log(flatten([1, [4, 5, [6, [7, 8, 9]]]]));

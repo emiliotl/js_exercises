@@ -11,16 +11,23 @@
 
 function everyWithLoop(array, predictiveFunction) {
     for (let i = 0; i < array.length; i++) {
-        if (!predictiveFunction(array[i])) return false;
+        if (!predictiveFunction(array[i])) {
+            return false;
+        }
     }
     return true
 }
 
 
 function everyWithSome(array, predictiveFunction) {
-    return !array.some(predictiveFunction);
+    for (let i = 0; i < array.length; i++) {
+        if (predictiveFunction(array[i])) {
+            return true;
+        }
+    }
+    return false
 }
 
 
-console.log(everyWithLoop([1, 2, 3, 4, 5], (a) => a < 6));
-console.log(everyWithSome([1, 2, 3, 4, 5], (a) => a > 6));
+console.log(everyWithLoop([1, 2, 3, 4, 5], (a) => a < 2));
+console.log(everyWithSome([1, 2, 3, 4, 5], (a) => a > 4));

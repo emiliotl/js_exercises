@@ -21,18 +21,27 @@ function deepEqual(firstObject, secondObject) {
         const firstObjectProperties = Object.keys(firstObject);
         const secondObjectProperties = Object.keys(secondObject);
 
-        if (firstObjectProperties.length !== secondObjectProperties.length) return false;
+        if (firstObjectProperties.length !== secondObjectProperties.length) {
+            return false;
+        }
         for (let member of firstObjectProperties) {
             const firstObjectMember = firstObject[member];
             const secondObjectMember = secondObject[member];
 
             if (typeof firstObjectMember === 'object' && typeof secondObjectMember === 'object') {
-                if (!deepEqual(firstObjectMember, secondObjectMember)) return false;
-            } else if (firstObjectMember !== secondObjectMember) return Number.isNaN(firstObjectMember);
+                if (!deepEqual(firstObjectMember, secondObjectMember)) {
+                    return false;
+                }
+            } else if (firstObjectMember !== secondObjectMember) {
+                return Number.isNaN(firstObjectMember);
+            }
         }
         return true;
-    } else if (firstObject !== secondObject) return Number.isNaN(firstObject);
-    else return true;
+    } else if (firstObject !== secondObject) {
+        return Number.isNaN(firstObject);
+    } else {
+        return true;
+    }
 }
 
 

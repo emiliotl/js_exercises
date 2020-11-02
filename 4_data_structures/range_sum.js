@@ -22,21 +22,18 @@
 function range(lower_bound, upper_bound, step= 1) {
     let numbers = [];
 
-    try {
-        if (lower_bound < upper_bound && step > 0) {
-            for (let i = lower_bound; i <= upper_bound; i += step) {
-                numbers.push(i);
-            }
-        } else if (lower_bound > upper_bound && step < 0) {
-            for (let i = lower_bound; i >= upper_bound; i += step) {
-                numbers.push(i);
-            }
-        } else throw Error("Given parameters won't produce a delimited range.");
-        return numbers;
-    } catch (e) {
-        return e;
+    if (lower_bound < upper_bound && step > 0) {
+        for (let i = lower_bound; i <= upper_bound; i += step) {
+            numbers.push(i);
+        }
+    } else if (lower_bound > upper_bound && step < 0) {
+        for (let i = lower_bound; i >= upper_bound; i += step) {
+            numbers.push(i);
+        }
+    } else {
+        console.log("Given parameters won't produce a delimited range.");
     }
-
+    return numbers;
 }
 
 
